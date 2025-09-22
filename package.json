@@ -1,9 +1,9 @@
 {
 	"name": "@opi_pib/prettier-config-base",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Prettier config",
-	"main": ".prettierrc.json",
-	"pretter": "./.prettierrc.json",
+	"main": ".prettierrc.mjs",
+	"type": "module",
 	"engines": {
 		"node": ">=24.0.0",
 		"npm": ">=10.8.0"
