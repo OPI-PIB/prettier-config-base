@@ -8,12 +8,25 @@ npm install -D @opi_pib/prettier-config-base
 
 ## Config
 
-### .prettierrc.json
+### Import
+
+#### .prettierrc.js
 
 ```
-{
-	"extends": ["@opi_pib/prettier-config-base"]
-}
+import baseConfig from "@opi_pib/prettier-config-base";
+
+export default {
+	...baseConfig, // import all options from library
+	tabWidth: 4, // overwrite a specific option
+};
+```
+
+or
+
+#### package.json
+
+```
+"prettier": "@opi_pib/prettier-config-base",
 ```
 
 ### package.json
