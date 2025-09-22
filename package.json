@@ -9,7 +9,7 @@
 		"npm": ">=10.8.0"
 	},
 	"scripts": {
-		"test": "vitest",
+		"test": "vitest --run",
 		"test:smoke": "prettier --check 'tests/**/*.{js,md,yaml}'"
 	},
 	"keywords": [
