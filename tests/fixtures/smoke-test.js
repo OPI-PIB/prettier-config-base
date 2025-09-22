@@ -15,7 +15,11 @@ const multiply = (x, y) => {
 };
 
 // Objects and arrays
-const user = { name: 'Alice', age: 30, hobbies: ['reading', 'gaming', 'hiking'] };
+const user = {
+	name: 'Alice',
+	age: 30,
+	hobbies: ['reading', 'gaming', 'hiking']
+};
 const numbers = [1, 2, 3, 4, 5];
 
 // Loops
