@@ -16,7 +16,7 @@ npm install -D @opi_pib/prettier-config-base prettier
 
 ### Import
 
-#### .prettierrc.js
+#### .prettierrc.mjs
 
 ```
 import { init } from '@opi_pib/prettier-config-base'; // or ng
