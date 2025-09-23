@@ -19,13 +19,13 @@ npm install -D @opi_pib/prettier-config-base prettier prettier-plugin-tailwindcs
 #### .prettierrc.js
 
 ```
-import baseConfig from '@opi_pib/prettier-config-base';
+import { init } from '@opi_pib/prettier-config-base'; // or ng
 
 /**
  * @type {import("prettier").Config}
  */
 export default {
-	...baseConfig.init // ...baseConfig.ng
+	...init
 };
 
 ```
@@ -35,7 +35,7 @@ or
 #### package.json
 
 ```
-"prettier": "@opi_pib/prettier-config-base/init",
+"prettier": "@opi_pib/prettier-config-base",
 ```
 
 or
