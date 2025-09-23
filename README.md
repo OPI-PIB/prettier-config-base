@@ -6,6 +6,12 @@
 npm install -D @opi_pib/prettier-config-base
 ```
 
+or
+
+```
+npm install -D @opi_pib/prettier-config-base prettier prettier-plugin-tailwindcss
+```
+
 ## Config
 
 ### Import
@@ -13,12 +19,15 @@ npm install -D @opi_pib/prettier-config-base
 #### .prettierrc.js
 
 ```
-import baseConfig from "@opi_pib/prettier-config-base";
+import baseConfig from '@opi_pib/prettier-config-base';
 
+/**
+ * @type {import("prettier").Config}
+ */
 export default {
-	...baseConfig, // import all options from library
-	tabWidth: 4, // overwrite a specific option
+	...baseConfig.init // ...baseConfig.ng
 };
+
 ```
 
 or
@@ -26,7 +35,13 @@ or
 #### package.json
 
 ```
-"prettier": "@opi_pib/prettier-config-base",
+"prettier": "@opi_pib/prettier-config-base/init",
+```
+
+or
+
+```
+"prettier": "@opi_pib/prettier-config-base/ng",
 ```
 
 ### package.json
