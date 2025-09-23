@@ -9,7 +9,7 @@ npm install -D @opi_pib/prettier-config-base
 or
 
 ```
-npm install -D @opi_pib/prettier-config-base prettier prettier-plugin-tailwindcss
+npm install -D @opi_pib/prettier-config-base prettier
 ```
 
 ## Config
