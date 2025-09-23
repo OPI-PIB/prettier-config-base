@@ -7,12 +7,5 @@ export default {
 	endOfLine: 'lf',
 	singleQuote: true,
 	trailingComma: 'none',
-	printWidth: 120,
-	plugins: (() => {
-		try {
-			return [require.resolve('prettier-plugin-tailwindcss')];
-		} catch {
-			return [];
-		}
-	})()
+	printWidth: 120
 };
