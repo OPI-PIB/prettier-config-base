@@ -6,7 +6,7 @@ describe('Prettier formatting', () => {
 	let config;
 
 	beforeAll(async () => {
-		config = await prettier.resolveConfig(path.resolve(__dirname, '.prettierrc.json'));
+		config = await prettier.resolveConfig(path.resolve(__dirname, '.prettierrc.mjs'));
 	});
 
 	it('formats JS code according to config', async () => {

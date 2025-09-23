@@ -1,11 +1,11 @@
 {
 	"name": "@opi_pib/prettier-config-base",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Prettier config",
-	"main": ".prettierrc.mjs",
+	"main": "src/index.mjs",
 	"type": "module",
 	"files": [
-		".prettierrc.mjs",
+		"src",
 		"LICENSE",
 		"README.md"
 	],
@@ -32,6 +32,12 @@
 		"vitest": "^3.0.0"
 	},
 	"peerDependencies": {
-		"prettier": "^3.0.0"
+		"prettier": "^3.0.0",
+		"prettier-plugin-tailwindcss": "^0.6.0"
+	},
+	"peerDependenciesMeta": {
+		"prettier-plugin-tailwindcss": {
+			"optional": true
+		}
 	}
 }
