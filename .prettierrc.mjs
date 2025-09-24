@@ -1,4 +1,4 @@
-import { init } from "./src/index.mjs";
+import { init } from './src/index.mjs';
 
 /**
  * @type {import("prettier").Config}

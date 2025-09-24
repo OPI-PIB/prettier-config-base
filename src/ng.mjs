@@ -4,7 +4,7 @@ import baseConfig from './init.mjs';
  */
 export default {
 	...baseConfig,
-	overrides: [ 
+	overrides: [
 		{
 			files: '*.html',
 			options: {
