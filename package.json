@@ -21,8 +21,10 @@
 	"scripts": {
 		"prepare": "husky",
 		"test": "vitest --run",
-		"test:smoke": "prettier -u -c 'tests/**/*.{js,md,yaml}'",
-		"lint:prettier": "prettier -u -w ."
+		"test:smoke": "prettier -u -c 'tests/**/*.{js,md,yaml}'"
+	},
+	"lint-staged": {
+		"*": "prettier -u -w"
 	},
 	"keywords": [
 		"prettier",
@@ -35,7 +37,8 @@
 		"url": "git+https://github.com/OPI-PIB/prettier-config-base.git"
 	},
 	"devDependencies": {
-		"husky": "^9.1.7",
+		"husky": "^9.0.0",
+		"lint-staged": "^16.0.0",
 		"prettier": "^3.0.0",
 		"vitest": "^3.0.0"
 	},
