@@ -3,12 +3,6 @@
 ## Install
 
 ```
-npm install -D @opi_pib/prettier-config-base
-```
-
-or
-
-```
 npm install -D @opi_pib/prettier-config-base prettier
 ```
 
@@ -47,7 +41,7 @@ or
 ### package.json
 
 ```
-"lint:prettier": "prettier --write .",
+"lint:prettier": "prettier -u -w ."
 ```
 
 ### VS Code settings.json

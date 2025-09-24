@@ -1,6 +1,6 @@
 {
 	"name": "@opi_pib/prettier-config-base",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"description": "Prettier config",
 	"main": "src/index.mjs",
 	"type": "module",
@@ -20,7 +20,8 @@
 	},
 	"scripts": {
 		"test": "vitest --run",
-		"test:smoke": "prettier --check 'tests/**/*.{js,md,yaml}'"
+		"test:smoke": "prettier -u -c 'tests/**/*.{js,md,yaml}'",
+		"lint:prettier": "prettier -u -w ."
 	},
 	"keywords": [
 		"prettier",
