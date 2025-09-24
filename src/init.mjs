@@ -4,8 +4,8 @@
 export default {
 	tabWidth: 2,
 	useTabs: true,
-	endOfLine: 'lf',
-	singleQuote: true,
-	trailingComma: 'none',
+	endOfLine: "lf",
+	singleQuote: false,
+	trailingComma: "none",
 	printWidth: 120
 };
