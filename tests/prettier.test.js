@@ -1,18 +1,22 @@
-import { describe, it, expect, beforeAll } from 'vitest';
-import prettier from 'prettier';
-import path from 'path';
+import { describe, it, before } from 'node:test';
+import { strictEqual, ok } from 'node:assert/strict';
+import { resolveConfig, format } from 'prettier';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe('Prettier formatting', () => {
 	let config;
 
-	beforeAll(async () => {
-		config = await prettier.resolveConfig(path.resolve(__dirname, '.prettierrc.mjs'));
+	before(async () => {
+		config = await resolveConfig(resolve(__dirname, '.prettierrc.mjs'));
 	});
 
 	it('formats JS code according to config', async () => {
 		const code = `function hello(){console.log("Hi")}`;
 
-		const formatted = await prettier.format(code, {
+		const formatted = await format(code, {
 			...config,
 			parser: 'babel'
 		});
@@ -22,7 +26,7 @@ describe('Prettier formatting', () => {
 }
 `;
 
-		expect(formatted).toBe(expected);
+		strictEqual(formatted, expected);
 	});
 
 	it('formats Markdown preserving prose wrap', async () => {
@@ -30,18 +34,18 @@ describe('Prettier formatting', () => {
 
 This is a paragraph that is really long and should not be wrapped automatically even if it exceeds the print width limit.`;
 
-		const formatted = await prettier.format(md, {
+		const formatted = await format(md, {
 			...config,
 			parser: 'markdown'
 		});
 
-		expect(formatted).toBe(md + '\n');
+		strictEqual(formatted, md + '\n');
 	});
 
 	it('wraps long JS text according to printWidth', async () => {
 		const code = `const text = "This is a very long string that should be wrapped if it exceeds the configured print width of 120 characters, even though we use tabs for indentation.";`;
 
-		const formatted = await prettier.format(code, {
+		const formatted = await format(code, {
 			...config,
 			parser: 'babel'
 		});
@@ -50,7 +54,7 @@ This is a paragraph that is really long and should not be wrapped automatically 
 \t'This is a very long string that should be wrapped if it exceeds the configured print width of 120 characters, even though we use tabs for indentation.';
 `;
 
-		expect(formatted).toBe(expected);
+		strictEqual(formatted, expected);
 	});
 
 	it('does not format files outside overrides', async () => {
@@ -58,13 +62,13 @@ This is a paragraph that is really long and should not be wrapped automatically 
 
 This text should remain untouched because it is not matched by any override.`;
 
-		const formatted = await prettier.format(mdFile, {
+		const formatted = await format(mdFile, {
 			...config,
 			parser: 'markdown'
 		});
 
-		expect(formatted).toContain('# Unmatched file');
-		expect(formatted).toContain('This text should remain untouched');
+		ok(formatted.includes('# Unmatched file'));
+		ok(formatted.includes('This text should remain untouched'));
 	});
 
 	it('formats YAML file with proper structure', async () => {
@@ -76,15 +80,15 @@ scripts:
   test: vitest
 `;
 
-		const formatted = await prettier.format(yaml, {
+		const formatted = await format(yaml, {
 			...config,
 			parser: 'yaml'
 		});
 
-		expect(formatted).toContain('name: Test Project');
-		expect(formatted).toContain('version: 1.0.0');
-		expect(formatted).toContain('scripts:');
-		expect(formatted).toContain('  start: node index.js');
-		expect(formatted).toContain('  test: vitest');
+		ok(formatted.includes('name: Test Project'));
+		ok(formatted.includes('version: 1.0.0'));
+		ok(formatted.includes('scripts:'));
+		ok(formatted.includes('  start: node index.js'));
+		ok(formatted.includes('  test: vitest'));
 	});
 });

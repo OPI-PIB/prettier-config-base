@@ -1,6 +1,6 @@
 {
 	"name": "@opi_pib/prettier-config-base",
-	"version": "1.0.11",
+	"version": "1.0.12",
 	"description": "Prettier config",
 	"main": "src/index.mjs",
 	"type": "module",
@@ -20,7 +20,7 @@
 	},
 	"scripts": {
 		"prepare": "husky",
-		"test": "vitest --run",
+		"test": "node --test tests/prettier.test.js",
 		"test:smoke": "prettier -u -c 'tests/**/*.{js,md,yaml}'"
 	},
 	"lint-staged": {
@@ -39,8 +39,7 @@
 	"devDependencies": {
 		"husky": "^9.0.0",
 		"lint-staged": "^16.0.0",
-		"prettier": "^3.0.0",
-		"vitest": "^3.0.0"
+		"prettier": "^3.0.0"
 	},
 	"peerDependencies": {
 		"prettier": "^3.0.0"
